@@ -381,38 +381,39 @@ const WeatherApp = () => {
           onChange={(e) => setCity(e.target.value)}
           placeholder="Enter city name"
           className="search-input"
-          style={{ padding: '10px', fontSize: '16px', borderRadius: '5px', border: '1px solid #ccc' }}
+          style={{ padding: '10px', fontSize: '26px', borderRadius: '5px', border: '1px solid #ccc' }}
         />
-        <button type="submit" className="search-button" style={{ padding: '10px', marginLeft: '10px' }}>Search</button>
+        <button type="submit" className="search-button" style={{ padding: '10px', marginLeft: '10px',fontSize: '25px' }}>Search</button>
       </form>
 
       {error && <p className="error-message" style={{ color: 'red' }}>{error}</p>}
 
       <div className="weather-info">
-        <h2 className="city-name" style={{ marginBottom: '10px' }}>
+        <h2 className="city-name" style={{ marginBottom: '10px',fontSize:"50px" }}>
           {city ? city : "Enter a city"}
           {weatherData.conditionIcon && (
-            <img src={weatherData.conditionIcon} alt="Weather icon" style={{ marginLeft: '10px', width: '40px' }} />
+            <img src={weatherData.conditionIcon} alt="Weather icon" style={{ marginLeft: '10px', width: '70px' }} />
           )}
         </h2>
 
         {/* Display current weather details */}
-        <p style={{ marginBottom: '10px' }}>
-          {getDayName(weatherData.localTime)} {new Date(weatherData.localTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })} <br />{weatherData.description}
+        <p style={{ marginBottom: '10px', fontSize:"20px" }}>
+          {getDayName(weatherData.localTime)} {new Date(weatherData.localTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })} <br />
+          {weatherData.description}
         </p>
 
-        <div className="weather-stats" style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '20px' }}>
+        <div className="weather-stats" style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '5px' }}>
           <div className="stat-item">
-            <FaTemperatureHigh className="weather-icon" style={{ fontSize: '30px', marginBottom: '5px' }} />
-            <p>{weatherData.temp}°C</p>
+            <FaTemperatureHigh className="weather-icon" style={{ fontSize: '45px', marginBottom: '5px' }} />Temperature
+            <p  style={{ fontSize: '25px'}}>{weatherData.temp}°C</p>
           </div>
           <div className="stat-item">
-            <WiHumidity className="weather-icon" style={{ fontSize: '30px', marginBottom: '5px' }} />
-            <p>{weatherData.humidity}%</p>
+            <WiHumidity className="weather-icon" style={{ fontSize: '50px', marginBottom: '5px' }} />Precipitation
+            <p  style={{ fontSize: '25px'}}>{weatherData.humidity}%</p>
           </div>
           <div className="stat-item">
-            <WiStrongWind className="weather-icon" style={{ fontSize: '30px', marginBottom: '5px' }} />
-            <p>{weatherData.wind} kph</p>
+            <WiStrongWind className="weather-icon" style={{ fontSize: '50px', marginBottom: '5px' }} />Wind speed
+            <p  style={{ fontSize: '25px'}}>{weatherData.wind} kph</p>
           </div>
         </div>
 
